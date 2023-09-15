@@ -1,7 +1,33 @@
-console.log('test')
 
-const apiKey = "8db965459e689988c56f9bc2eafac014";
-
-//prompt user input for city search
 const city = "Austin";
-const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+const url = `https://api.weather.gov/points/39.7456,-97.0892`;
+let forecast;
+
+
+fetch(url).then(function (response) {
+    //going to be a json string 
+    //parse the json
+
+    response.json().then(function (weatherData) {
+        console.log(weatherData.properties.forecast);
+        forecast = weatherData.properties.forecast;
+
+        fetch(forecast).then(function (response) {
+
+            response.json().then(function (newData) {
+
+                console.log(newData)
+console.log( newData.properties.periods[0].name)
+
+            })
+
+
+
+
+
+
+
+        })
+
+    });
+});
