@@ -3,6 +3,9 @@ const yelpApiKey = "5KJgDCNwMAcVAmCvRFAqs5QsOiizehW_nA-Njeu_XlfAenCt6ew5tosAX26f
 const yelpApiBaseUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses"; //https://cors-anywhere.herokuapp.com
 
 
+const yelpEl = document.getElementById('yelp-results');
+// console.log(yelpEl);
+
 // Function to perform a Yelp API search for parks
 function searchForParks(city) {
     const options = {
@@ -19,34 +22,50 @@ function searchForParks(city) {
         .then(function (response) {
             response.json().then(function (parkData) {
                 console.log(parkData)
+                extractData(parkData);
                 // parkData.businesses[0].name
                 // parkData.businesses[0].image_url
                 // parkData.businesses[0].coordinates.latitude
                 // parkData.businesses[0].coordinates.longitude
-
-
-                for (let index = 0; index < 5; index++) {
-                    let name = parkData.businesses[index].name
-                    console.log(parkData.businesses[index].name);
-                    
-                    let image = parkData.businesses[index].name
-                    console.log(parkData.businesses[index].name);
-
-                    let latitude = parkData.businesses[index].coordinates.latitude
-                    console.log(parkData.businesses[index].coordinates.latitude);
-
-                    let longitude = parkData.businesses[index].coordinates.longitude
-                    console.log(parkData.businesses[index].coordinates.longitude);
-
-                }
             })
         })
     //.catch(err => console.error(err));
 }
 
-searchForParks("Austin")
+function extractData(parkData) {
+    for (let index = 0; index < 5; index++) {
+        let name = parkData.businesses[index].name
+        // console.log(parkData.businesses[index].name);
+        
+        let image = parkData.businesses[index].image_url;
+        // console.log(parkData.businesses[index].image_url);
 
+        let latitude = parkData.businesses[index].coordinates.latitude
+        // console.log(parkData.businesses[index].coordinates.latitude);
 
+        let longitude = parkData.businesses[index].coordinates.longitude
+        // console.log(parkData.businesses[index].coordinates.longitude);
+
+        let address = parkData.businesses[index].location.display_address[0];
+        console.log(address);
+
+        let nameEl = document.createElement('h3');
+        let addressEl = document.createElement('p');
+        let imageEl = document.createElement('img');
+        
+        nameEl.textContent = name;
+        nameEl.setAttribute('class', 'park-names');
+        addressEl.setAttribute('class', 'park-names');
+        imageEl.setAttribute('src', image);
+        imageEl.setAttribute('class', 'images');
+        addressEl.textContent = address;
+
+        yelpEl.appendChild(nameEl);
+        yelpEl.appendChild(addressEl);
+        yelpEl.appendChild(imageEl);
+    }
+
+}
 
 
 
@@ -113,15 +132,15 @@ searchForParks("Austin")
 //     messageDiv.style.display = 'block';
 // }
 
-// // Handle form submission
-// document.getElementById('search-bar').addEventListener('change', function (e) {
-//     e.preventDefault();
-//     const city = document.getElementById('search-bar').value.trim();
-//     if (city) {
-//         searchForParks(city);
-//     }
-//     console.log(city)
-// });
+// Handle form submission
+document.getElementById('search-bar').addEventListener('change', function (e) {
+    e.preventDefault();
+    const city = document.getElementById('search-bar').value.trim();
+    if (city) {
+        searchForParks(city);
+    }
+    console.log(city)
+});
 
 // // Initialize the page
 // clearResults();
