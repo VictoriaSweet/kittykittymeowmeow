@@ -1,8 +1,6 @@
 const city = "Austin";
 const url = `https://api.weather.gov/points/39.7456,-97.0892`;
 let forecast;
-
-
 fetch(url).then(function (response) {
     //going to be a json string 
     //parse the json
@@ -20,13 +18,8 @@ console.log( newData.properties.periods[0].name)
 
             })
 
-
-
-
-
-
-
         })
 
     });
 });
+

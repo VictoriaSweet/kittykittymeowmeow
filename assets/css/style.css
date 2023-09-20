@@ -1,4 +1,19 @@
-* {
-    border: 1px solid black;
+.column, 
+.select,
+.columns {
+    margin: 10px 0;
 }
 
+.column {
+    margin: 10px;
+}
+
+.park-names {
+    color: black;
+    font-weight: bold;
+}
+
+.images {
+    width: 10%;
+    height: 10%;
+}

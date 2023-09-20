@@ -1,54 +1,26 @@
 <!DOCTYPE html>
+<html>
 
-<!-- <--<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rain or Shine</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rain or Shine</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
 
-<nav>
-    <input type="text" placeholder="City, ST">
-    <ul>
-        <li>Example of search results</li>
-    </ul>
-</nav>
-
-<main>
-    <section>
-        This is where the map or search results will go.
-    </section>
-
-    <section>
-        Weather
-    </section>
-</main>
-    
-</body>
-</html> --> 
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
-  <body>
   <section class="section">
     <div class="container">
       <h1 class="title">
         Rain or Shine
       </h1>
-      <p class="subtitle">
+      <h2 class="subtitle">
         Enter in a city <!-- <strong>Bulma</strong>! -->
-      </p>
+      </h2>
 
-      <input class="input" type="text" placeholder="Text input">
+      <input class="input" type="text" placeholder="City, ST" id="search-bar">
 
       <div class="field">
         <!-- <label class="label">Subject</label> -->
@@ -64,27 +36,29 @@
     </div>
 
     <div class="container">
-        <div class="notification is-primary">
-          This container is <strong>centered</strong> on desktop and larger viewports.
-        </div>
+      <div class="notification is-primary" id="yelp-results">
+        Results
+      </div>
     </div>
 
-    <div class="columns">
-        <div class="column">
-            First column
-        </div>
-        <div class="column">
-            Second column
-        </div>
-        <div class="column">
-            Third column
-        </div>
-        <div class="column">
-            Fourth column
-        </div>
+    <div class="columns is-8">
+      <div class="column has-background-info-dark">
+        First column
+      </div>
+      <div class="column has-background-info-dark">
+        Second column
+      </div>
+      <div class="column has-background-info-dark">
+        Third column
+      </div>
+      <div class="column has-background-info-dark">
+        Fourth column
+      </div>
     </div>
 
   </section>
-  <script src="assets/css/script.js"></script>
-  </body>
+  <script src="./assets/JS/yelpAPI.js"></script>
+  <script src="./assets/JS/script.js"></script>
+</body>
+
 </html>
