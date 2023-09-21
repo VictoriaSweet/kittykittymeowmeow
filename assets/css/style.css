@@ -15,3 +15,18 @@
     width: 10%;
     height: 10%;
 }
+
+.submit { 
+    border:black solid 5px; 
+}
+
+.containerHeader { 
+    border:solid red 5px; 
+}
+.container { 
+    border:solid yellow 5px;
+}
+
+.parkResult { 
+border: solid green 5px ; 
+}
