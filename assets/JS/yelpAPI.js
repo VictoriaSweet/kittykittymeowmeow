@@ -47,9 +47,11 @@ let longitude = parkData.businesses[index].coordinates.longitude
 // console.log(parkData.businesses[index].coordinates.longitude);
 
 //fix the code to display the street address and the street name with city, state and zip code**
-let address = parkData.businesses[index].location;
-console.log(address);
+// let address = parkData.businesses[index].location;
+// console.log(address);
 
+let address = parkData.businesses[index].location.display_address[0];
+console.log(address);
 
 //** put all the items in a box and add 'click' event to get the weather for the day**
 let nameEl = document.createElement('h3');
@@ -94,25 +96,27 @@ searchForParks(city);
 }
 
 
-//**be able to mark previous searches as favorites **
-//and to be able to go back to them with the updated weather for the day**
-//**make icon a star but if not that ok, just have something**
+// **be able to mark previous searches as favorites **
+// and to be able to go back to them with the updated weather for the day**
+// **make icon a star but if not that ok, just have something**
 
-//**display search history**
-// function displaySearchHistory() {
-//     //"select" is class tag 
-// let searchHistory = document.querySelector("select");
-// let select = localStorage.getItem("key");
+// display search history**
+function displaySearchHistory() {
+    //"select" is class tag 
+let searchHistory = document.querySelector("select");
+let select = localStorage.getItem("key");
 
-// //retrieve search history 
-// if (localStorageSearchHistory = null) {
-// // **if key is found in local storage, show found key in console
-// SearchHistory = JSON.parse(localStorageSearchHistory);
-// return localStorageSearchHistory.getItem("key");
-// //display Austin
-// }
-// console.log(displaySearchHistory)
-// }
+localStorage.setItem('key', '');
+
+//retrieve search history 
+if (localStorageSearchHistory = null) {
+// **if key is found in local storage, show found key in console
+SearchHistory = JSON.parse(localStorageSearchHistory);
+return localStorageSearchHistory.getItem("key");
+//display Austin
+}
+console.log(displaySearchHistory)
+}
 
 
 
