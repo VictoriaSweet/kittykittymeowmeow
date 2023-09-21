@@ -26,3 +26,7 @@
 .container { 
     border:solid yellow 5px;
 }
+
+.parkResult { 
+border: solid green 5px ; 
+}
