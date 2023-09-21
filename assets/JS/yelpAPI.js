@@ -11,14 +11,14 @@ const yelpEl = document.getElementById('yelp-results');
 
 // Function to perform a Yelp API search for parks
 function searchForParks(city) {
-const options = {
-method: 'GET',
-headers: {
-Origin: "null",
-accept: 'application/json',
-Authorization: `bearer ${yelpApiKey}`
-}
-};
+    const options = {
+        method: 'GET',
+        headers: {
+            Origin: "null",
+            accept: 'application/json',
+            Authorization: `bearer ${yelpApiKey}`
+        }
+    };
 const apiUrl = `${yelpApiBaseUrl}/search?location=${city}&term=park&sort_by=best_match&limit=20`;
 
 
@@ -36,7 +36,7 @@ extractData(parkData);
 //.catch(err => console.error(err));
 }
 
-
+//getting park data out of API 
 function extractData(parkData) {
 for (let index = 0; index < 5; index++) {
 let name = parkData.businesses[index].name
@@ -52,11 +52,11 @@ let latitude = parkData.businesses[index].coordinates.latitude
 let longitude = parkData.businesses[index].coordinates.longitude
 // console.log(parkData.businesses[index].coordinates.longitude);
 
-
+//fix the code to display the street address and the street name with city, state and zip code**
 let address = parkData.businesses[index].location;
 console.log(address);
 
-
+//** put all the items in a box and add 'click' event to get the weather for the day**
 let nameEl = document.createElement('h3');
 let addressEl = document.createElement('p');
 let imageEl = document.createElement('img');
@@ -66,7 +66,7 @@ addressEl.setAttribute('class', 'park-names');
 imageEl.setAttribute('src', image);
 imageEl.setAttribute('class', 'images');
 addressEl.textContent = address;
-
+//object transveral, turn the object into an array 
 
 yelpEl.appendChild(nameEl);
 yelpEl.appendChild(addressEl);
@@ -79,98 +79,29 @@ yelpEl.appendChild(imageEl);
 
 
 
-
-
-
-
-
-
-// // Function to clear previous results
-// function clearResults() {
-// //document.getElementById('parkInfo').style.display = 'none';
-// //document.getElementById('reviews').style.display = 'none';
-// // document.getElementById('parkName').textContent = '';
-// //document.getElementById('parkAddress').textContent = '';
-// //document.getElementById('parkPhone').textContent = '';
-// }
-
-
-// // Function to display park information
-// function displayParkInfo(park) {
-// let park = data.businesses;
-// document.getElementById('parkName').textContent = park.name;
-// document.getElementById('parkAddress').textContent = park.location.address1;
-// document.getElementById('parkPhone').textContent = park.phone;
-// document.getElementById('parkInfo').style.display = 'block';
-// }
-
-
-
-
-
-
-// // Function to display reviews for a park
-// function displayReviews(parkId) {
-// // Make a Yelp API request to get park reviews
-// const reviewsUrl = `${yelpApiBaseUrl}/${parkId}/reviews`;
-
-
-// fetch(reviewsUrl, {
-// method: 'GET',
-// headers: {
-// Authorization: `Bearer ${yelpApiKey}`,
-// },
-// })
-// .then(response => response.json())
-// .then(data => {
-// const reviews = data.reviews;
-// const reviewList = document.getElementById('reviewList');
-
-
-// if (reviews.length === 0) {
-// reviewList.innerHTML = '<li>No reviews available for this park.</li>';
-// } else {
-// reviewList.innerHTML = '';
-// reviews.forEach(review => {
-// const listItem = document.createElement('li');
-// listItem.innerHTML = `<strong>${review.user.name}</strong> - ${review.rating} stars<br>${review.text}`;
-// reviewList.appendChild(listItem);
-// });
-// document.getElementById('reviews').style.display = 'block';
-// }
-// })
-// .catch(error => {
-// console.error('Error:', error);
-// displayMessage('An error occurred while fetching park reviews.');
-// });
-// }
-
-
-// // Function to display a message to the user
-// function displayMessage(message) {
-// const messageDiv = document.getElementById('message');
-// messageDiv.textContent = message;
-// messageDiv.style.display = 'block';
-// }
-
-
 // Handle form submission
+//search bar
 document.getElementById('search-bar').addEventListener('change', function (e) {
 e.preventDefault();
+//**insert submit button
+// add  'click' event listener**
 const city = document.getElementById('search-bar').value.trim();
 if (city) {
 searchForParks(city);
 }
 console.log(city)
 
+//**be able to mark previous searches as favorites **
+//and to be able to go back to them with the updated weather for the day**
+//**make icon a star but if not that ok, just have something**
 
-
-
+//**display search history**
 function displaySearchHistory() {
+    //"select" is class tag 
 let searchHistory = document.querySelector("select");
 let select = localStorage.getItem("key");
 
-
+//retrieve search history 
 if (localStorageSearchHistory = null) {
 // **if key is found in local storage, show found key in console
 SearchHistory = JSON.parse(localStorageSearchHistory);
@@ -186,5 +117,3 @@ console.log(displaySearchHistory)
 });
 
 
-// // Initialize the page
-// clearResults();
