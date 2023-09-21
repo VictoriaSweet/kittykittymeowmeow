@@ -4,7 +4,7 @@ const yelpApiBaseUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com
 
 
 const yelpEl = document.getElementById('yelp-results');
-// console.log(yelpEl);
+console.log(yelpEl);
 
 // Function to perform a Yelp API search for parks
 function searchForParks(city) {
@@ -17,7 +17,7 @@ function searchForParks(city) {
         }
     };
     const apiUrl = `${yelpApiBaseUrl}/search?location=${city}&term=park&sort_by=best_match&limit=20`;
-
+    console.log(yelpApiBaseUrl)
     fetch(apiUrl, options)
         .then(function (response) {
             response.json().then(function (parkData) {
@@ -35,8 +35,8 @@ function searchForParks(city) {
 function extractData(parkData) {
     for (let index = 0; index < 5; index++) {
         let name = parkData.businesses[index].name
-        // console.log(parkData.businesses[index].name);
-        
+        console.log(parkData.businesses[index].name);
+
         let image = parkData.businesses[index].image_url;
         // console.log(parkData.businesses[index].image_url);
 
@@ -52,7 +52,7 @@ function extractData(parkData) {
         let nameEl = document.createElement('h3');
         let addressEl = document.createElement('p');
         let imageEl = document.createElement('img');
-        
+
         nameEl.textContent = name;
         nameEl.setAttribute('class', 'park-names');
         addressEl.setAttribute('class', 'park-names');
@@ -142,5 +142,5 @@ document.getElementById('search-bar').addEventListener('change', function (e) {
     console.log(city)
 });
 
-// // Initialize the page
+// // Initialize the page 
 // clearResults();
