@@ -3,11 +3,9 @@ const yelpApiKey = "5KJgDCNwMAcVAmCvRFAqs5QsOiizehW_nA-Njeu_XlfAenCt6ew5tosAX26f
 const yelpApiBaseUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses"; //https://cors-anywhere.herokuapp.com
 
 
-
-
+const parkResult1 = document.querySelector("park-result-1");
+const parkResult2 = document.querySelector("park-result-2");
 const yelpEl = document.getElementById('yelp-results');
-// console.log(yelpEl);
-
 
 // Function to perform a Yelp API search for parks
 function searchForParks(city) {
@@ -27,26 +25,22 @@ fetch(apiUrl, options)
 response.json().then(function (parkData) {
 console.log(parkData)
 extractData(parkData);
-// parkData.businesses[0].name
-// parkData.businesses[0].image_url
-// parkData.businesses[0].coordinates.latitude
-// parkData.businesses[0].coordinates.longitude
 })
 })
-//.catch(err => console.error(err));
+
 }
 
 //getting park data out of API 
 function extractData(parkData) {
 for (let index = 0; index < 5; index++) {
 let name = parkData.businesses[index].name
-// console.log(parkData.businesses[index].name);
+
 let image = parkData.businesses[index].image_url;
-// console.log(parkData.businesses[index].image_url);
+
 
 
 let latitude = parkData.businesses[index].coordinates.latitude
-// console.log(parkData.businesses[index].coordinates.latitude);
+
 
 
 let longitude = parkData.businesses[index].coordinates.longitude
@@ -55,6 +49,7 @@ let longitude = parkData.businesses[index].coordinates.longitude
 //fix the code to display the street address and the street name with city, state and zip code**
 let address = parkData.businesses[index].location;
 console.log(address);
+
 
 //** put all the items in a box and add 'click' event to get the weather for the day**
 let nameEl = document.createElement('h3');
@@ -67,15 +62,23 @@ imageEl.setAttribute('src', image);
 imageEl.setAttribute('class', 'images');
 addressEl.textContent = address;
 //object transveral, turn the object into an array 
-
 yelpEl.appendChild(nameEl);
 yelpEl.appendChild(addressEl);
 yelpEl.appendChild(imageEl);
-}
-
 
 }
 
+}
+// Get a reference to the button element
+const submitButton = document.querySelector('.submit');
+
+// Add an event listener to the button
+submitButton.addEventListener('click', function(
+    response 
+) {
+    // Your code to handle the button click goes here
+    console.log("submit button response");
+});
 
 
 
@@ -89,31 +92,30 @@ const city = document.getElementById('search-bar').value.trim();
 if (city) {
 searchForParks(city);
 }
-console.log(city)
+
 
 //**be able to mark previous searches as favorites **
 //and to be able to go back to them with the updated weather for the day**
 //**make icon a star but if not that ok, just have something**
 
 //**display search history**
-function displaySearchHistory() {
-    //"select" is class tag 
-let searchHistory = document.querySelector("select");
-let select = localStorage.getItem("key");
+// function displaySearchHistory() {
+//     //"select" is class tag 
+// let searchHistory = document.querySelector("select");
+// let select = localStorage.getItem("key");
 
-//retrieve search history 
-if (localStorageSearchHistory = null) {
-// **if key is found in local storage, show found key in console
-SearchHistory = JSON.parse(localStorageSearchHistory);
-return localStorageSearchHistory.getItem("key");
-//display Austin
-}
-console.log(displaySearchHistory)
-}
+// //retrieve search history 
+// if (localStorageSearchHistory = null) {
+// // **if key is found in local storage, show found key in console
+// SearchHistory = JSON.parse(localStorageSearchHistory);
+// return localStorageSearchHistory.getItem("key");
+// //display Austin
+// }
+// console.log(displaySearchHistory)
+// }
 
 
 
 
 });
-
 
