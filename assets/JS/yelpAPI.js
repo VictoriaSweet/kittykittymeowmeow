@@ -3,8 +3,6 @@ const yelpApiKey = "5KJgDCNwMAcVAmCvRFAqs5QsOiizehW_nA-Njeu_XlfAenCt6ew5tosAX26f
 const yelpApiBaseUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses"; //https://cors-anywhere.herokuapp.com
 
 
-const parkResult1 = document.querySelector("park-result-1");
-const parkResult2 = document.querySelector("park-result-2");
 const yelpEl = document.getElementById('yelp-results');
 
 // Function to perform a Yelp API search for parks
@@ -33,6 +31,8 @@ extractData(parkData);
 //getting park data out of API 
 function extractData(parkData) {
 for (let index = 0; index < 5; index++) {
+    const parkResult = document.querySelector(`#park-result-${index+1}`);
+
 let name = parkData.businesses[index].name
 
 let image = parkData.businesses[index].image_url;
@@ -61,10 +61,10 @@ addressEl.setAttribute('class', 'park-names');
 imageEl.setAttribute('src', image);
 imageEl.setAttribute('class', 'images');
 addressEl.textContent = address;
-//object transveral, turn the object into an array 
-yelpEl.appendChild(nameEl);
-yelpEl.appendChild(addressEl);
-yelpEl.appendChild(imageEl);
+//object traversal, turn the object into an array 
+parkResult.appendChild(nameEl);
+parkResult.appendChild(addressEl);
+parkResult.appendChild(imageEl);
 
 }
 
