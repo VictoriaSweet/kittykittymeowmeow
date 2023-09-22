@@ -1,6 +1,7 @@
 //Set to API key
 const yelpApiKey = "5KJgDCNwMAcVAmCvRFAqs5QsOiizehW_nA-Njeu_XlfAenCt6ew5tosAX26fz1Seb0TvfGrTPwdJ-yq1HfMx3ap6NqcdDcU50K-TZOjGjDZN3txIaox8L64gxJsDZXYx";
 const yelpApiBaseUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses"; //https://cors-anywhere.herokuapp.com
+const test = "the weather is nice";
 
 
 const yelpEl = document.getElementById('yelp-results');
@@ -32,20 +33,18 @@ extractData(parkData);
 function extractData(parkData) {
 for (let index = 0; index < 5; index++) {
     const parkResult = document.querySelector(`#park-result-${index+1}`);
-
 let name = parkData.businesses[index].name
 
 let image = parkData.businesses[index].image_url;
 
 
 
-let latitude = parkData.businesses[index].coordinates.latitude
+let lat = parkData.businesses[index].coordinates.latitude;
 
 
 
-let longitude = parkData.businesses[index].coordinates.longitude
+let long = parkData.businesses[index].coordinates.longitude;
 // console.log(parkData.businesses[index].coordinates.longitude);
-
 //fix the code to display the street address and the street name with city, state and zip code**
 // let address = parkData.businesses[index].location;
 // console.log(address);
@@ -56,8 +55,12 @@ console.log(address);
 //** put all the items in a box and add 'click' event to get the weather for the day**
 let nameEl = document.createElement('h3');
 let addressEl = document.createElement('p');
+let latEl = document.createElement('p');
+let longEl = document.createElement('p');
 let imageEl = document.createElement('img');
 nameEl.textContent = name;
+latEl.textContent = lat;
+longEl.textContent = long;
 nameEl.setAttribute('class', 'park-names');
 addressEl.setAttribute('class', 'park-names');
 imageEl.setAttribute('src', image);
@@ -67,12 +70,13 @@ addressEl.textContent = address;
 parkResult.appendChild(nameEl);
 parkResult.appendChild(addressEl);
 parkResult.appendChild(imageEl);
-
+parkResult.appendChild(latEl);
+parkResult.appendChild(longEl);
 }
 
 }
 // Get a reference to the button element
-const submitButton = document.querySelector('.submit');
+let submitButton = document.querySelector('.submit');
 
 // Add an event listener to the button
 submitButton.addEventListener('click', function(
@@ -82,6 +86,16 @@ submitButton.addEventListener('click', function(
     console.log("submit button response");
 });
 
+
+let weatherButton = document.querySelector('#yelp-results');
+
+weatherButton.addEventListener('click', function(
+    response
+) {
+    console.log(response.target.children[3].innerText);
+    console.log(response.target.children[4].innerText);
+    getWeatherData(response.target.children[3].innerText, response.target.children[4].innerText);
+});
 
 
 // Handle form submission
@@ -117,8 +131,4 @@ return localStorageSearchHistory.getItem("key");
 }
 console.log(displaySearchHistory)
 }
-
-
-
-
 });
