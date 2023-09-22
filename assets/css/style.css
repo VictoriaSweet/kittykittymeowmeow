@@ -1,4 +1,6 @@
-#search-bar, .select, .columns {
+.column, 
+.select,
+.columns {
     margin: 10px 0;
 }
 
