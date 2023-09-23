@@ -105,6 +105,19 @@ e.preventDefault();
 //**insert submit button
 // add  'click' event listener**
 const city = document.getElementById('search-bar').value.trim();
+
+
+let rainOrShineSearches = [];
+if (localStorage.getItem("rainOrShineOldSearches")) {
+    rainOrShineSearches.push(localStorage.getItem("rainOrShineOldSearches"));
+    console.log(rainOrShineSearches);
+    rainOrShineSearches.push(city);
+} else {
+    rainOrShineSearches = city;
+}
+
+localStorage.setItem('rainOrShineOldSearches', rainOrShineSearches);
+
 if (city) {
 searchForParks(city);
 }
