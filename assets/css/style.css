@@ -4,6 +4,10 @@
     margin: 10px 0;
 }
 
+body { 
+    background-color: #67d9e6;
+}
+
 .column {
     margin: 10px;
 }
@@ -11,6 +15,7 @@
 .park-names {
     color: black;
     font-weight: bold;
+    height: 50px;
 }
 
 .images {
@@ -19,16 +24,35 @@
 }
 
 .submit { 
-    border:black solid 5px; 
+    border:outset 5px; 
 }
 
-.containerHeader { 
-    border:solid red 5px; 
+.containerHeader {  
 }
 .container { 
-    border:solid yellow 5px;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
 }
 
 .parkResult { 
-border: solid green 5px ; 
+background-color: #4eed5c;
+border: outset 5px;
+width:auto;
+display: flex;
+justify-content: center;
+}
+
+#parkResultContainer { 
+    display:flex ; 
+    justify-content: center;
+}
+
+.weatherResult { 
+    border: outset #67d9e6 5px; 
+
+}
+
+.weatherContainer { 
+    border: solid pink 5px;
 }
