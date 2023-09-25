@@ -12,8 +12,8 @@ so that I can plan out my outdoor activities properly.
 
 
 |<span style="color:red;">**When...**</span>                           |<span style="color:red;">**Then...**</span>                                                |
-|----------------------------------------------------------------------|--------------------------------------------------------------                             
-|                      I press "Search"                                               |     I can input my desired Zip code                                                      | 
+|----------------------------------------------------------------------|--------------------------------------------------------------
+|                      I press "Search"                                               |     I can input my desired Zip code                                                      |
 |                                       I see the map of parks around me                          |         I also see the weather of the day by hour                                                  |
 |                    I review the weather                                                  |        I decide if it is worth being outside                                                    |
 
@@ -21,8 +21,7 @@ so that I can plan out my outdoor activities properly.
 
 ### Base Logic
 Pressing search is going to give an option to insert a zip code.
-Once a zip code is inserted in the search, a list of nearby parks will show up on the users interface. The user must click on a park in order to see the weather for the day. On the Bottom left in the footer, this will be the stared parks. The starred parks will be in the "starred" page. The bottom right of the footer will be --------. 
-You decide if it is worth being in the park! 🌳
+Once a zip code is inserted in the search, a list of nearby parks will show up on the users interface. The user must click on a park in order to see the weather for the day. You decide if it is worth being in the park! 🌳
 
 
 ---
@@ -46,21 +45,21 @@ NEED PHOTOS
 
 
 #### Final Product
-<!-- Finished Link -->
+- https://victoriasweet.github.io/kittykittymeowmeow/
 
 
 ---
 
 ## Credits
 
-- Tim Lafuente
- -
 - Trinidad Gaytan
- - 
-- Trystan Cortez
- - 
-- Victoria Jacobo
- - 
-- Victoria Sweet
- -
+- https://github.com/tgaytan
 
+- Trystan Cortez
+- https://github.com/CortezT
+
+- Victoria Jacobo
+- https://github.com/VJacobo
+
+- Victoria Sweet
+- https://github.com/VictoriaSweet
