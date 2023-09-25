@@ -33,6 +33,10 @@ function getWeatherData(x, y) {
             weatherResult.appendChild(temperatureEl);
             weatherResult.appendChild(shortForecastEl);
           }
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+          });
         });
       });
     });

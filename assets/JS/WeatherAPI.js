@@ -36,7 +36,6 @@ function extractData(forcastData) {
         return response.json();
       })
       .then(function (data) {
-        // Handle API response data
       })
       .catch(function (error) {
         console.error("API request error:", error);

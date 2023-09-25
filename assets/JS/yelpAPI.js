@@ -65,14 +65,6 @@ function extractData(parkData) {
   }
 }
 
-let submitButton = document.querySelector(".submit");
-
-submitButton.addEventListener("click", function (response) {});
-
-// let weatherButton = document.querySelector("parkResult");
-
-//properties.periods[index].icon
-
 document.getElementById("search-bar").addEventListener("change", function (e) {
   e.preventDefault();
 
