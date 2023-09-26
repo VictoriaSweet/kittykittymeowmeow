@@ -39,8 +39,7 @@ Once a zip code is inserted in the search, a list of nearby parks will show up o
 
 ---
 ## Photos
-NEED PHOTOS
-#### Wireframe
+![Project 1 img](https://github.com/VictoriaSweet/kittykittymeowmeow/assets/126823522/fd2a5090-b014-4885-8b0b-197d1caabc05)
 
 
 
